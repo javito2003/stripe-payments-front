@@ -42,4 +42,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: registry.digitalocean.com/stripe-payments/stripe_payments_api:${{ env.ENV_NAME }}
+          tags: registry.digitalocean.com/stripe-payments/stripe_payments_front:${{ env.ENV_NAME }}
