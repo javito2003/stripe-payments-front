@@ -39,9 +39,15 @@ COPY package.json pnpm-lock.yaml ./
 # Copy source code
 COPY . .
 
+# Build-time args for NEXT_PUBLIC_* variables
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+
 # Set Next.js telemetry disabled
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV BUILD_STANDALONE=true
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=$NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
 # Build Next.js (outputs to .next/)
 RUN pnpm build
