@@ -12,7 +12,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable pnpm && pnpm run build
+RUN npm install -g pnpm@10.24.0
+RUN pnpm build
 
 # Stage 3: Production server
 FROM base AS runner
